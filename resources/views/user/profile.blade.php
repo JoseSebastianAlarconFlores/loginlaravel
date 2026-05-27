@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Panel de Usuario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -142,7 +142,6 @@
             border: 1px solid rgba(212, 175, 55, 0.15);
         }
 
-        /* Badges formales y minimalistas */
         .badge-custom {
             font-size: 0.75rem;
             font-weight: 600;
@@ -165,7 +164,6 @@
             border: 1px solid rgba(148, 163, 184, 0.2);
         }
 
-        /* Botón de Logout refinado */
         .btn-logout {
             background: transparent;
             border: 1px solid rgba(239, 68, 68, 0.3);
@@ -228,7 +226,7 @@
                 </div>
                 <div class="info-item">
                     <div class="icon-wrapper">
-                        <i class="bi bi-shield-protected"></i>
+                        <i class="bi bi-shield-lock"></i>
                     </div>
                     
                     <div>
