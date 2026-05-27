@@ -176,29 +176,30 @@
 
             <form action="{{ url('/login') }}" method="POST">
                 @csrf
-                <div class="mb-3.5">
+                <div class="mb-4">
                     <label class="form-label">Nombre de Usuario</label>
                     <div class="input-group">
                         <span class="input-group-text-custom">
                             <i class="bi bi-person"></i>
                         </span>
-                        <input type="text" name="email" class="form-control form-control-custom" required placeholder="Ej. omarqm" autocomplete="off">
+                        <input type="text" name="email" class="form-control-custom w-100" style="outline: none;" placeholder="Ej: omarqm" required autocomplete="off">
                     </div>
                 </div>
-                <div class="mb-4.5" style="margin-bottom: 2rem;">
+                <div class="mb-4">
                     <label class="form-label">Contraseña</label>
                     <div class="input-group">
                         <span class="input-group-text-custom">
                             <i class="bi bi-key"></i>
                         </span>
-                        <input type="password" id="passwordInput" name="password" class="form-control form-control-custom" required placeholder="••••••••">
-                        <button type="button" class="btn-toggle-pwd" id="togglePasswordBtn" title="Mostrar/Ocultar contraseña">
-                            <i class="bi bi-eye" id="eyeIcon"></i>
+                        <input type="password" name="password" class="form-control-custom" style="outline: none;" placeholder="Mínimo 4 caracteres" required>
+                        
+                        <button type="button" class="btn-toggle-pwd">
+                            <i class="bi bi-eye"></i>
                         </button>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-premium w-100 shadow-sm">
-                    Acceder de forma segura
+                    Acceder
                 </button>
             </form>
         </div>

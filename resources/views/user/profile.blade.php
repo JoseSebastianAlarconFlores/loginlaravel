@@ -30,7 +30,6 @@
             background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            /* Borde sutil de oro platino */
             border: 1px solid rgba(212, 175, 55, 0.15);
             border-radius: 20px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -232,14 +231,14 @@
                         <i class="bi bi-shield-protected"></i>
                     </div>
                     <div>
-                        <span class="info-label mb-1">Rol </span>
+                        <span class="info-label mb-1">Rol</span>
                         @if($user->role == 'admin')
-                            <span class="badge-custom badge-admin">
-                                <i class="bi bi-patch-check me-1.5"></i>Administrador
+                            <span class="badge-custom badge-admin d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-patch-check"></i> Administrador
                             </span>
                         @else
-                            <span class="badge-custom badge-user">
-                                <i class="bi bi-person-workspace me-1.5"></i>Usuario
+                            <span class="badge-custom badge-user d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-person-workspace"></i> Usuario
                             </span>
                         @endif
                     </div>

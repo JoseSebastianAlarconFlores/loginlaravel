@@ -142,16 +142,15 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(30, 41, 59, 0.2);
+            background: rgba(30, 41, 59, 0.2) !important;
         }
 
-        .table {
-            color: #cbd5e1;
-            margin-bottom: 0;
+        .table-dark, .table-dark th, .table-dark td {
+            background-color: transparent !important;
+            color: #cbd5e1 !important;
         }
 
         .table th {
-            background-color: rgba(15, 23, 42, 0.8) !important;
             color: #64748b !important;
             font-size: 0.75rem;
             font-weight: 600;
@@ -160,10 +159,8 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
-        .table td {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+        .table td .text-white, .table td.text-white {
+            color: #ffffff !important;
         }
 
         .table-hover tbody tr:hover {
@@ -309,7 +306,7 @@
             
             <div class="table-container">
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle m-0">
+                    <table class="table table-dark table-hover align-middle m-0" style="background: transparent;">
                         <thead>
                             <tr>
                                 <th class="ps-4 py-3" style="width: 90px;">Identificador</th>
