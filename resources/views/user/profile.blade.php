@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Panel de Usuario</title>
-    <!-- Bootstrap 5 y Google Fonts para una consistencia premium -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +11,6 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Mismo fondo corporativo profundo que el Login */
             background: radial-gradient(circle at top right, #1e1b4b 0%, #0f172a 100%);
             min-height: 100vh;
             display: flex;
@@ -21,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Detalle ultra delgado de Aguayo Formalizado */
         .premium-border {
             height: 4px;
             background: linear-gradient(to right, #be123c, #b45309, #047857, #db2777, #1d4ed8);
@@ -38,7 +35,7 @@
             border-radius: 20px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             width: 440px;
-            padding: 0 !important; /* Control total interno */
+            padding: 0 !important;
             transition: all 0.4s ease;
         }
 
@@ -50,7 +47,6 @@
             padding: 2.5rem 2.2rem;
         }
 
-        /* Contenedor del Avatar refinado */
         .avatar-container {
             width: 84px;
             height: 84px;
@@ -76,7 +72,7 @@
             right: 2px;
             width: 16px;
             height: 16px;
-            background-color: #10b981; /* Verde esmeralda */
+            background-color: #10b981;
             border: 3px solid #141b2d;
             border-radius: 50%;
         }
@@ -90,8 +86,6 @@
             color: #94a3b8;
             font-size: 0.85rem;
         }
-
-        /* Caja de información integrada al diseño oscuro */
         .info-container {
             background-color: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -115,7 +109,7 @@
             height: 38px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #d4af37; /* Detalle dorado sutil en los iconos */
+            color: #d4af37;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -199,11 +193,9 @@
 <body>
 
     <div class="card profile-card text-white">
-        <!-- Línea superior de Aguayo integrada -->
         <div class="premium-border"></div>
         
         <div class="card-body-custom">
-            <!-- Cabecera de Perfil -->
             <div class="text-center mb-4">
                 <div class="avatar-container">
                     <div class="avatar-circle rounded-circle d-flex align-items-center justify-content-center">
@@ -215,9 +207,7 @@
                 <p class="text-muted-custom mt-1 mb-0">Detalles de la sesión activa</p>
             </div>
 
-            <!-- Bloque de Información -->
             <div class="info-container mb-4">
-                <!-- Nombre Completo -->
                 <div class="info-item">
                     <div class="icon-wrapper">
                         <i class="bi bi-person"></i>
@@ -228,7 +218,6 @@
                     </div>
                 </div>
                 
-                <!-- Nombre de Usuario (Email/Login) -->
                 <div class="info-item">
                     <div class="icon-wrapper">
                         <i class="bi bi-fingerprint"></i>
@@ -238,32 +227,29 @@
                         <span class="info-code">{{ $user->email }}</span>
                     </div>
                 </div>
-                
-                <!-- Rol Asignado -->
                 <div class="info-item">
                     <div class="icon-wrapper">
                         <i class="bi bi-shield-protected"></i>
                     </div>
                     <div>
-                        <span class="info-label mb-1">Rol Asignado</span>
+                        <span class="info-label mb-1">Rol </span>
                         @if($user->role == 'admin')
                             <span class="badge-custom badge-admin">
                                 <i class="bi bi-patch-check me-1.5"></i>Administrador
                             </span>
                         @else
                             <span class="badge-custom badge-user">
-                                <i class="bi bi-person-workspace me-1.5"></i>Usuario General
+                                <i class="bi bi-person-workspace me-1.5"></i>Usuario
                             </span>
                         @endif
                     </div>
                 </div>
             </div>
-            
-            <!-- Acción: Cerrar Sesión -->
+
             <form action="{{ route('logout') }}" method="POST" class="m-0">
                 @csrf
                 <button type="submit" class="btn btn-logout w-100 d-flex align-items-center justify-content-center gap-2">
-                    <i class="bi bi-box-arrow-left"></i> Cerrar Sesión Activa
+                    <i class="bi bi-box-arrow-left"></i> Cerrar Sesión
                 </button>
             </form>
         </div>

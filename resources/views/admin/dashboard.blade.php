@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrador (ABM) - Sistema Académico</title>
     
-    <!-- Bootstrap 5 y Google Fonts para consistencia Premium -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,14 +17,12 @@
             min-height: 100vh;
         }
 
-        /* Detalle sutil de la paleta institucional (Aguayo formalizado) */
         .premium-top-bar {
             height: 4px;
             background: linear-gradient(to right, #be123c, #b45309, #047857, #db2777, #1d4ed8);
             width: 100%;
         }
 
-        /* Navbar estilo panel flotante traslúcido */
         .navbar-custom {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
@@ -67,7 +64,6 @@
             color: #fca5a5;
         }
 
-        /* Tarjetas de Contenedores (Glassmorphism) */
         .custom-card {
             background: rgba(15, 23, 42, 0.5);
             backdrop-filter: blur(16px);
@@ -85,7 +81,7 @@
         .card-header-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #74879a;
             letter-spacing: -0.02em;
         }
 
@@ -94,7 +90,6 @@
             font-size: 1.25rem;
         }
 
-        /* Inputs y Controles de Formulario */
         .form-label {
             color: #94a3b8;
             font-weight: 500;
@@ -125,7 +120,6 @@
             color: #475569;
         }
 
-        /* Botón de Guardado Premium (Dorado) */
         .btn-premium-action {
             background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
             border: none;
@@ -144,7 +138,6 @@
             color: #0f172a;
         }
 
-        /* Tablas de Datos Elegantes */
         .table-container {
             border-radius: 12px;
             overflow: hidden;
@@ -187,7 +180,6 @@
             border-radius: 4px;
         }
 
-        /* Badges de Roles Rediseñados */
         .badge-custom {
             font-size: 0.7rem;
             font-weight: 600;
@@ -211,11 +203,10 @@
             border: 1px solid rgba(148, 163, 184, 0.2);
         }
 
-        /* Botón de Eliminación sutil */
         .btn-delete-custom {
             background: transparent;
             border: 1px solid rgba(239, 68, 68, 0.2);
-            color: #fca5a5;
+            color: #dd3636;
             font-size: 0.8rem;
             padding: 0.4rem 0.8rem;
             border-radius: 8px;
@@ -228,7 +219,6 @@
             color: #fff;
         }
 
-        /* Alertas institucionales */
         .alert-success-custom {
             background: rgba(16, 185, 129, 0.1);
             border: 1px solid rgba(16, 185, 129, 0.2);
@@ -239,17 +229,15 @@
 </head>
 <body>
 
-    <!-- Línea superior de marca -->
     <div class="premium-top-bar"></div>
 
-    <!-- Navbar Superior -->
     <nav class="navbar navbar-custom sticky-top py-3 mb-4">
         <div class="container">
             <span class="navbar-brand mb-0 h1 fw-bold d-flex align-items-center gap-2.5">
                 <div class="brand-icon-box">
                     <i class="bi bi-layers"></i>
                 </div>
-                Panel de Administración <span class="fw-light text-muted-custom fs-6 d-none d-sm-inline">| Central ABM</span>
+                Panel de Administración <span class="fw-light text-muted-custom fs-6 d-none d-sm-inline">| ABM</span>
             </span>
             <form action="{{ route('logout') }}" method="POST" class="m-0">
                 @csrf
@@ -260,10 +248,8 @@
         </div>
     </nav>
 
-    <!-- Contenido Principal -->
     <main class="container mb-5">
         
-        <!-- Notificaciones de Éxito de Laravel -->
         @if(session('success'))
             <div class="alert alert-success-custom p-3 d-flex align-items-center shadow-sm mb-4" role="alert">
                 <i class="bi bi-check2-circle me-2.5 fs-5"></i>
@@ -271,7 +257,6 @@
             </div>
         @endif
 
-        <!-- Bloque 1: Formulario de Registro -->
         <div class="card custom-card p-4 mb-4">
             <div class="d-flex align-items-center justify-content-between border-bottom border-secondary border-opacity-25 pb-3 mb-4">
                 <div class="d-flex align-items-center">
@@ -297,9 +282,9 @@
                         <input type="password" name="password" class="form-control" placeholder="Mínimo 4 caracteres" required>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-2">
-                        <label class="form-label">Rol Operativo</label>
+                        <label class="form-label">Rol</label>
                         <select name="role" class="form-select">
-                            <option value="user">Usuario General</option>
+                            <option value="user">Usuario</option>
                             <option value="admin">Administrador</option>
                         </select>
                     </div>
