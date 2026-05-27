@@ -276,7 +276,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3 mb-2">
                         <label class="form-label">Contraseña</label>
-                        <input type="password" name="password" class="form-control" placeholder="********" required>
+                        <input type="password" name="password" class="form-control" placeholder="Mínimo 4 caracteres" required>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-2">
                         <label class="form-label">Rol</label>

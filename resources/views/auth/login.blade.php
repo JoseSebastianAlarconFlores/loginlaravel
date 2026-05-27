@@ -63,29 +63,29 @@
         }
 
         .input-group {
-            display: flex !important;
-            align-items: center !important;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
         }
 
         .input-group-text-custom {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            height: 100% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: transparent;
+        }
+
+        .form-control-custom {
+            flex: 1 !important;
+            background: transparent !important;
+            vertical-align: middle !important;
         }
 
         .input-group:focus-within {
             border-color: #d4af37;
             box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
             background-color: rgba(30, 41, 59, 0.8);
-        }
-
-        .form-control-custom {
-            background: transparent;
-            border: none;
-            color: #f8fafc;
-            padding: 0.75rem 1rem 0.75rem 0;
-            font-size: 0.95rem;
         }
 
         .form-control-custom:focus {
@@ -187,7 +187,7 @@
                         <span class="input-group-text-custom">
                             <i class="bi bi-key"></i>
                         </span>
-                        <input type="password" name="password" class="form-control-custom" style="outline: none;" placeholder="Mínimo 4 caracteres" required>
+                        <input type="password" name="password" class="form-control-custom" style="outline: none;" placeholder="********" required>
                         
                         <button type="button" class="btn-toggle-pwd">
                             <i class="bi bi-eye"></i>
