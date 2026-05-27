@@ -276,7 +276,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3 mb-2">
                         <label class="form-label">Contraseña</label>
-                        <input type="password" name="password" class="form-control" placeholder="Mínimo 4 caracteres" required>
+                        <input type="password" name="password" class="form-control" placeholder="********" required>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-2">
                         <label class="form-label">Rol</label>
@@ -294,7 +294,6 @@
             </form>
         </div>
 
-        <!-- Bloque 2: Listado y Tabla -->
         <div class="card custom-card p-4">
             <div class="d-flex align-items-center justify-content-between border-bottom border-secondary border-opacity-25 pb-3 mb-4">
                 <div class="d-flex align-items-center">

@@ -233,11 +233,11 @@
                     <div>
                         <span class="info-label mb-1">Rol</span>
                         @if($user->role == 'admin')
-                            <span class="badge-custom badge-admin d-inline-flex align-items-center gap-2">
+                            <span class="badge-custom badge-admin d-inline-flex align-items-center gap-1">
                                 <i class="bi bi-patch-check"></i> Administrador
                             </span>
                         @else
-                            <span class="badge-custom badge-user d-inline-flex align-items-center gap-2">
+                            <span class="badge-custom badge-user d-inline-flex align-items-center gap-1">
                                 <i class="bi bi-person-workspace"></i> Usuario
                             </span>
                         @endif

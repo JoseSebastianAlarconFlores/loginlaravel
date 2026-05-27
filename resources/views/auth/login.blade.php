@@ -63,25 +63,21 @@
         }
 
         .input-group {
-            border-radius: 12px;
-            overflow: hidden;
-            background-color: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .input-group-text-custom {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100% !important;
         }
 
         .input-group:focus-within {
             border-color: #d4af37;
             box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
             background-color: rgba(30, 41, 59, 0.8);
-        }
-
-        .input-group-text-custom {
-            background: transparent;
-            border: none;
-            color: #64748b;
-            padding-left: 1.2rem;
-            padding-right: 0.8rem;
         }
 
         .form-control-custom {
