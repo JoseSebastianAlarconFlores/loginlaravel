@@ -3,153 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Administrador (ABM) - Jose Sebastian Alarcon Flores</title>
+    <title>Panel Administrador (ABM) - Sistema Académico</title>
     
+    <!-- Bootstrap 5 y Google Fonts para consistencia Premium -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
-            background-color: #f3f4f6;
-            color: #1f2937;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #1e1b4b 0%, #0f172a 100%);
+            color: #f8fafc;
+            min-height: 100vh;
         }
+
+        /* Detalle sutil de la paleta institucional (Aguayo formalizado) */
+        .premium-top-bar {
+            height: 4px;
+            background: linear-gradient(to right, #be123c, #b45309, #047857, #db2777, #1d4ed8);
+            width: 100%;
+        }
+
+        /* Navbar estilo panel flotante traslúcido */
         .navbar-custom {
-            background-color: #0f172a;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .custom-card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+        .navbar-brand {
+            letter-spacing: -0.025em;
+            color: #f8fafc !important;
         }
-        .form-label {
+
+        .brand-icon-box {
+            width: 36px;
+            height: 36px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .btn-logout-nav {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-size: 0.85rem;
             font-weight: 500;
-            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.2s;
         }
+
+        .btn-logout-nav:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #fca5a5;
+        }
+
+        /* Tarjetas de Contenedores (Glassmorphism) */
+        .custom-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        .custom-card:hover {
+            border-color: rgba(212, 175, 55, 0.25);
+        }
+
+        .card-header-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            letter-spacing: -0.02em;
+        }
+
+        .header-icon-wrapper {
+            color: #d4af37;
+            font-size: 1.25rem;
+        }
+
+        /* Inputs y Controles de Formulario */
+        .form-label {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-uppercase: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control, .form-select {
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #f8fafc;
+            border-radius: 10px;
+            padding: 0.65rem 1rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #475569;
+        }
+
+        /* Botón de Guardado Premium (Dorado) */
+        .btn-premium-action {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            border: none;
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.65rem 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium-action:hover {
+            background: linear-gradient(135deg, #e5c158 0%, #c5921a 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px -4px rgba(212, 175, 55, 0.3);
+            color: #0f172a;
+        }
+
+        /* Tablas de Datos Elegantes */
         .table-container {
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(30, 41, 59, 0.2);
         }
-        .table thead {
-            background-color: #f9fafb;
+
+        .table {
+            color: #cbd5e1;
+            margin-bottom: 0;
         }
+
+        .table th {
+            background-color: rgba(15, 23, 42, 0.8) !important;
+            color: #64748b !important;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-uppercase: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.02) !important;
+            color: #fff;
+        }
+
+        .font-code-custom {
+            font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Badges de Roles Rediseñados */
+        .badge-custom {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            text-uppercase: uppercase;
+            display: inline-flex;
+            align-items: center;
+        }
+
         .badge-admin {
-            background-color: #1e3a8a;
-            color: #93c5fd;
+            background-color: rgba(212, 175, 55, 0.1) !important;
+            color: #e5c158 !important;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
+
         .badge-user {
-            background-color: #4b5563;
-            color: #e5e7eb;
+            background-color: rgba(148, 163, 184, 0.1) !important;
+            color: #cbd5e1 !important;
+            border: 1px solid rgba(148, 163, 184, 0.2);
         }
-        .btn-delete {
-            background-color: #dc2626;
-            color: #ffffff;
-            border: none;
-            transition: background-color 0.2s;
+
+        /* Botón de Eliminación sutil */
+        .btn-delete-custom {
+            background: transparent;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
-        .btn-delete:hover {
-            background-color: #b91c1c;
-            color: #ffffff;
+
+        .btn-delete-custom:hover {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: #ef4444;
+            color: #fff;
+        }
+
+        /* Alertas institucionales */
+        .alert-success-custom {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-custom navbar-dark shadow-sm py-3 mb-4">
-        <div class="container d-flex justify-content-between align-items-center">
-            <span class="navbar-brand mb-0 h1 fw-semibold d-flex align-items-center gap-2">
-                <i class="bi bi-layers text-secondary"></i> Panel de Administración (ABM)
+    <!-- Línea superior de marca -->
+    <div class="premium-top-bar"></div>
+
+    <!-- Navbar Superior -->
+    <nav class="navbar navbar-custom sticky-top py-3 mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1 fw-bold d-flex align-items-center gap-2.5">
+                <div class="brand-icon-box">
+                    <i class="bi bi-layers"></i>
+                </div>
+                Panel de Administración <span class="fw-light text-muted-custom fs-6 d-none d-sm-inline">| Central ABM</span>
             </span>
             <form action="{{ route('logout') }}" method="POST" class="m-0">
                 @csrf
-                <button type="submit" class="btn btn-sm btn-light fw-medium px-3 d-flex align-items-center gap-1">
+                <button type="submit" class="btn btn-logout-nav d-flex align-items-center gap-2">
                     <i class="bi bi-box-arrow-left"></i> Cerrar Sesión
                 </button>
             </form>
         </div>
     </nav>
 
+    <!-- Contenido Principal -->
     <main class="container mb-5">
         
+        <!-- Notificaciones de Éxito de Laravel -->
         @if(session('success'))
-            <div class="alert alert-success border-0 shadow-sm d-flex align-items-center rounded-3 mb-4" role="alert">
-                <i class="bi bi-check-circle-fill me-2 fs-5"></i>
-                <div>{{ session('success') }}</div>
+            <div class="alert alert-success-custom p-3 d-flex align-items-center shadow-sm mb-4" role="alert">
+                <i class="bi bi-check2-circle me-2.5 fs-5"></i>
+                <div class="small fw-medium">{{ session('success') }}</div>
             </div>
         @endif
 
+        <!-- Bloque 1: Formulario de Registro -->
         <div class="card custom-card p-4 mb-4">
-            <div class="d-flex align-items-center border-bottom pb-2 mb-4">
-                <i class="bi bi-person-plus fs-4 me-2 text-dark"></i>
-                <h5 class="m-0 fw-bold text-dark">Registrar Nuevo Usuario</h5>
+            <div class="d-flex align-items-center justify-content-between border-bottom border-secondary border-opacity-25 pb-3 mb-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-person-plus header-icon-wrapper me-2.5"></i>
+                    <h5 class="m-0 card-header-title">Registrar Nuevo Usuario</h5>
+                </div>
+                <span class="text-muted-custom small" style="font-size: 0.75rem;">MÓDULO DE ACCESOS</span>
             </div>
             
             <form action="{{ route('admin.users.store') }}" method="POST">
                 @csrf
-                <div class="row g-3">
-                    <div class="col-md-6 col-lg-3">
-                        <label class="form-label small">Nombre Completo</label>
+                <div class="row g-3.5">
+                    <div class="col-md-6 col-lg-3 mb-2">
+                        <label class="form-label">Nombre Completo</label>
                         <input type="text" name="name" class="form-control" placeholder="Ej: Omar" required autocomplete="off">
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <label class="form-label small">Nombre de Usuario</label>
+                    <div class="col-md-6 col-lg-3 mb-2">
+                        <label class="form-label">Nombre de Usuario</label>
                         <input type="text" name="email" class="form-control" placeholder="Ej: omarqm" required autocomplete="off">
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <label class="form-label small">Contraseña</label>
+                    <div class="col-md-6 col-lg-3 mb-2">
+                        <label class="form-label">Contraseña</label>
                         <input type="password" name="password" class="form-control" placeholder="Mínimo 4 caracteres" required>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <label class="form-label small">Rol</label>
+                    <div class="col-md-6 col-lg-3 mb-2">
+                        <label class="form-label">Rol Operativo</label>
                         <select name="role" class="form-select">
-                            <option value="user">Usuario</option>
+                            <option value="user">Usuario General</option>
                             <option value="admin">Administrador</option>
                         </select>
                     </div>
-                    <div class="col-12 mt-4">
-                        <button type="submit" class="btn btn-primary px-4 fw-medium d-flex align-items-center gap-1">
-                            <i class="bi bi-check-lg"></i> Crear
+                    <div class="col-12 mt-4 text-end">
+                        <button type="submit" class="btn btn-premium-action px-4">
+                            <i class="bi bi-plus-lg me-1.5"></i>Crear Cuenta
                         </button>
                     </div>
                 </div>
             </form>
         </div>
 
+        <!-- Bloque 2: Listado y Tabla -->
         <div class="card custom-card p-4">
-            <div class="d-flex align-items-center border-bottom pb-2 mb-4">
-                <i class="bi bi-people fs-4 me-2 text-dark"></i>
-                <h5 class="m-0 fw-bold text-dark">Usuarios Registrados</h5>
+            <div class="d-flex align-items-center justify-content-between border-bottom border-secondary border-opacity-25 pb-3 mb-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-people header-icon-wrapper me-2.5"></i>
+                    <h5 class="m-0 card-header-title">Usuarios Registrados</h5>
+                </div>
+                <span class="text-muted-custom small" style="font-size: 0.75rem;">REGISTROS ACTIVOS</span>
             </div>
             
-            <div class="table-container bg-white">
+            <div class="table-container">
                 <div class="table-responsive">
                     <table class="table table-hover align-middle m-0">
                         <thead>
-                            <tr class="table-light">
-                                <th class="ps-4 py-3 text-secondary fw-semibold" style="width: 80px;">ID</th>
-                                <th class="py-3 text-secondary fw-semibold">Nombre Completo</th>
-                                <th class="py-3 text-secondary fw-semibold">Nombre de Usuario</th>
-                                <th class="py-3 text-secondary fw-semibold">Rol</th>
-                                <th class="text-center py-3 text-secondary fw-semibold" style="width: 160px;">Acciones</th>
+                            <tr>
+                                <th class="ps-4 py-3" style="width: 90px;">Identificador</th>
+                                <th class="py-3">Nombre Completo</th>
+                                <th class="py-3">Nombre de Usuario (Login)</th>
+                                <th class="py-3">Nivel de Acceso</th>
+                                <th class="text-center py-3" style="width: 140px;">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $u)
                             <tr>
-                                <td class="ps-4 fw-bold text-muted">{{ $u->id }}</td>
-                                <td class="fw-semibold text-dark">{{ $u->name }}</td>
-                                <td class="text-secondary font-monospace">{{ $u->email }}</td>
+                                <td class="ps-4 fw-semibold text-muted" style="font-size: 0.85rem;">#{{ $u->id }}</td>
+                                <td class="fw-medium text-white">{{ $u->name }}</td>
+                                <td>
+                                    <span class="font-code-custom">{{ $u->email }}</span>
+                                </td>
                                 <td>
                                     @if($u->role == 'admin')
-                                        <span class="badge badge-admin px-2.5 py-1.5 rounded-pill text-uppercase fw-semibold">
-                                            <i class="bi bi-patch-check-fill me-1"></i> Administrador
+                                        <span class="badge-custom badge-admin">
+                                            <i class="bi bi-patch-check me-1.5"></i>Administrador
                                         </span>
                                     @else
-                                        <span class="badge badge-user px-2.5 py-1.5 rounded-pill text-uppercase fw-semibold">
-                                            <i class="bi bi-person me-1"></i> Usuario
+                                        <span class="badge-custom badge-user">
+                                            <i class="bi bi-person-workspace me-1.5"></i>Usuario
                                         </span>
                                     @endif
                                 </td>
@@ -157,8 +357,8 @@
                                     <form action="{{ route('admin.users.destroy', $u->id) }}" method="POST" class="m-0">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-delete px-3 py-1.5 rounded-2 d-inline-flex align-items-center gap-1" onclick="return confirm('¿Estás seguro de eliminar a este usuario?')">
-                                            <i class="bi bi-trash3"></i> Eliminar
+                                        <button type="submit" class="btn btn-delete-custom d-inline-flex align-items-center gap-1" onclick="return confirm('¿Confirma la eliminación permanente de este registro?')">
+                                            <i class="bi bi-trash"></i> Eliminar
                                         </button>
                                     </form>
                                 </td>
