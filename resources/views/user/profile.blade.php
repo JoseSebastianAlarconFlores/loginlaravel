@@ -230,6 +230,7 @@
                     <div class="icon-wrapper">
                         <i class="bi bi-shield-protected"></i>
                     </div>
+                    
                     <div>
                         <span class="info-label mb-1">Rol</span>
                         @if($user->role == 'admin')
